@@ -98,7 +98,10 @@ bot.dialog('/', function (session) {
             url: url,
             json: true
         }, function (error, response, body) {
-            session.send(JSON.stringify(body));
+
+            var amanha = body.results.forecast[1];
+
+            session.send(`Em ${amanha.date} a previsao é de ${amanha.description}. Minima de ${amanha.min} e maxima de ${amanha.max}.`);
         })
 
     } else {
