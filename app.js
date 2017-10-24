@@ -52,11 +52,9 @@ String.prototype.contains = function(content){
 bot.dialog('/', function (session) {
 
     // session.message.text.toLowerCase().contains('hello')
-
+    /*
     if(session.message.text.toLowerCase().contains('@JSBot')){
-        
-        session.send(`Oie!`);
-
     }
-
+    */
+    session.send(`Oie!` + session.message.text.toLowerCase());
 });
