@@ -8,8 +8,10 @@ const lerolero = require('lerolero');
 // Setup Restify Server
 var server = restify.createServer();
 
-server.listen(process.env.port || 8080, function () {
+server.listen(process.env.port || process.env.PORT || 8080, function () {
    console.log('%s listening to %s', server.name, server.url);
+   console.log(process.env.appId);
+   console.log(process.env.appPassword);
 });
 
 // Create chat bot
