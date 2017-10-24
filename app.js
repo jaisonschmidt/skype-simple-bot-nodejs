@@ -53,6 +53,8 @@ bot.dialog('/', function (session) {
     
     if(session.message.user.name=="Jaison Schmidt") {
         setTimeout(function(){ sendProactiveMessage(session.message.address) }, 4000);
+        session.send(`teste`);
+        return;
     }
 
     if(session.message.text.toLowerCase().contains('diga oi')){
@@ -70,8 +72,6 @@ bot.dialog('/', function (session) {
         
         session.send(arr.sort(function(a, b){return a-b}).toString());
 
-    } else if(session.message.text.toLowerCase().contains('message address')){
-        session.send(session.message.address);
     } else {
         session.send(`Não entendi ${session.message.user.name}. Procura no [Google](http://google.com)!`);
     }
