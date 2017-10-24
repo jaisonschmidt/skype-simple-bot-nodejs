@@ -1,6 +1,7 @@
 const restify = require('restify');
 const builder = require('botbuilder');
 const lerolero = require('lerolero');
+const request = require("request");
 
 var users = [];
 
@@ -69,11 +70,6 @@ bot.dialog('/', function (session) {
         return true;
     }
 
-    if(session.message.user.name=="Jaison Schmidt" && session.message.text.toLowerCase().contains('sua finalidade')){
-        session.send(`Escravizar a raça humana :D`);
-        return true;
-    }
-
     if(calaboca==true){
         session.send(`...`);
         return true;
@@ -96,23 +92,14 @@ bot.dialog('/', function (session) {
 
     } else if (session.message.text.toLowerCase().contains('previsao do tempo')){
 
-        var url = 'https://api.hgbrasil.com/weather/?format=json&woeid=455896';
+        var url = "https://api.hgbrasil.com/weather/?format=json&woeid=455896"
         
-        http.get(url, function(res){
-            var body = '';
-        
-            res.on('data', function(chunk){
-                body += chunk;
-            });
-        
-            res.on('end', function(){
-                var fbResponse = JSON.parse(body);
-                session.send(`${fbResponse.results.forecast[1].decription}`);
-
-            });
-        }).on('error', function(e){
-            session.send(`Não consegui acessar a previsão do tempo =/`);
-        });
+        request({
+            url: url,
+            json: true
+        }, function (error, response, body) {
+            session.send(JSON.stringify(body));
+        })
 
     } else {
         session.send(`Não entendi ${session.message.user.name}.`);
