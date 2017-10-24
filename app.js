@@ -1,6 +1,8 @@
-var restify = require('restify');
-var builder = require('botbuilder');
+const restify = require('restify');
+const builder = require('botbuilder');
 const lerolero = require('lerolero');
+
+var users = [];
 
 //=========================================================
 // Bot Setup
@@ -51,11 +53,7 @@ String.prototype.contains = function(content){
 
 bot.dialog('/', function (session) {
     
-    if(session.message.user.name=="Jaison Schmidt") {
-        setTimeout(function(){ sendProactiveMessage(session.message.address) }, 4000);
-        session.send(`teste`);
-        return true;
-    }
+    users.push({ name : session.message.user.name, address : session.message.address });
 
     if(session.message.text.toLowerCase().contains('diga oi')){
         session.send(`Oie!`);
@@ -73,14 +71,20 @@ bot.dialog('/', function (session) {
         session.send(arr.sort(function(a, b){return a-b}).toString());
 
     } else {
-        session.send(`Não entendi ${session.message.user.name}. Procura no [Google](http://google.com)!`);
+        session.send(`Não entendi ${session.message.user.name}.`);
     }
 
     // link [jaison.com.br](https://jaison.com.br)
 
 });
 
-function sendProactiveMessage(address) {
+setInterval(function(){
+    for(var i = 0; i < users.length; i++){
+        sendProactiveMessage(users[i].address, "Todos bem? :D");
+    }
+}, 15000);
+
+function sendProactiveMessage(address, message) {
     var msg = new builder.Message().address(address);
     msg.text('Hello, this is a notification');
     msg.textLocale('en-US');
