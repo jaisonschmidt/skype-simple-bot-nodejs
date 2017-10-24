@@ -77,16 +77,17 @@ bot.dialog('/', function (session) {
     // link [jaison.com.br](https://jaison.com.br)
 
 });
-
+/*
 setInterval(function(){
     for(var i = 0; i < users.length; i++){
         sendProactiveMessage(users[i].address, "Todos bem? :D");
     }
 }, 15000);
+*/
 
 function sendProactiveMessage(address, message) {
     var msg = new builder.Message().address(address);
-    msg.text('Hello, this is a notification');
+    msg.text(message);
     msg.textLocale('en-US');
     bot.send(msg);
 }
