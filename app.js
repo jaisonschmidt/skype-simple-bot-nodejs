@@ -82,7 +82,7 @@ bot.dialog('/', function (session) {
         return true;
     }
 
-    if(session.message.text.toLowerCase().contains('previsao do tempo') == "meme ue"){
+    if(session.message.text.toLowerCase().contains('meme ue')){
         session.send(`https://forum.gc.historygames.net/uploads/monthly_2016_07/64510606.jpg.71550efcca9d919f6bde8b2dcde4beeb.jpg`);
     } else  if(session.message.text.toLowerCase().contains('diga algo')){
         session.send(lerolero());
