@@ -61,4 +61,17 @@ bot.dialog('/', function (session) {
         session.send(lerolero());
     } 
 
+    if(session.message.text.toLowerCase().contains('diga os numeros da quina')){
+        var arr = []
+        var ordem = [];
+    
+        while(arr.length < 5){
+            var randomnumber = Math.ceil(Math.random()*100)
+            if(arr.indexOf(randomnumber) > -1) continue;
+            arr[arr.length] = randomnumber;
+        }
+        
+        session.send(arr.sort(function(a, b){return a-b}).toString());
+    }
+
 });
