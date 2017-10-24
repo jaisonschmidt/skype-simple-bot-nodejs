@@ -65,6 +65,9 @@ bot.dialog('/', function (session) {
         }
         
         session.send(arr.sort(function(a, b){return a-b}).toString());
+
+    } else if(session.message.text.toLowerCase().contains('message address')){
+        session.send(session.message.address);
     } else {
         session.send(`Não entendi ${session.message.user.name}. Procura no [Google](http://google.com)!`);
     }
