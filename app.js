@@ -10,8 +10,6 @@ var server = restify.createServer();
 
 server.listen(process.env.port || process.env.PORT || 8080, function () {
    console.log('%s listening to %s', server.name, server.url);
-   console.log(process.env.appId);
-   console.log(process.env.appPassword);
 });
 
 // Create chat bot
@@ -54,9 +52,19 @@ String.prototype.contains = function(content){
 bot.dialog('/', function (session) {
 
     // session.message.text.toLowerCase().contains('hello')
-    /*
+    
     if(session.message.text.toLowerCase().contains('@JSBot')){
+
+        if(session.message.text.toLowerCase().contains('diga oi')){
+            session.send(`Oie!`);
+        }
+
+        if(session.message.text.toLowerCase().contains('diga algo')){
+            session.send(lerolero());
+        }
+        
+
     }
-    */
-    session.send(`Oie!` + session.message.text.toLowerCase());
+
+    
 });
