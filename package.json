@@ -1,0 +1,18 @@
+{
+  "name": "js-bot",
+  "version": "1.0.0",
+  "description": "A simple Skype ChatBot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Jaison Schmidt",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.11.0",
+    "lerolero": "0.0.1",
+    "restify": "^6.2.3"
+  }
+}
