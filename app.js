@@ -55,13 +55,7 @@ bot.dialog('/', function (session) {
 
     if(session.message.text.toLowerCase().contains('@JSBot')){
         
-        if(session.message.text.toLowerCase().contains('diga oi')){
-            session.send(`Oie!`);
-        }
-
-        if(session.message.text.toLowerCase().contains('diga algo')){
-            session.send(lerolero());
-        }
+        session.send(`Oie!`);
 
     }
 
