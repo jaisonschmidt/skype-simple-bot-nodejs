@@ -1,16 +1,24 @@
+/*
+    
+
+THIS IS A SIMPLE AND ACADEMIC SKYPE BOT USING NODEJS
+
+
+
+*/
+
 const restify = require('restify');
 const builder = require('botbuilder');
 const lerolero = require('lerolero');
 const request = require("request");
 
-var users = [];
 
+var users = [];
 var calaboca = false;
 
 //=========================================================
 // Bot Setup
 //=========================================================
-// Setup Restify Server
 var server = restify.createServer();
 
 server.listen(process.env.port || process.env.PORT || 8080, function () {
@@ -56,7 +64,7 @@ String.prototype.contains = function(content){
 
 bot.dialog('/', function (session) {
     
-    users.push({ name : session.message.user.name, address : session.message.address });
+    //users.push({ name : session.message.user.name, address : session.message.address });
 
     if(session.message.user.name=="Jaison Schmidt" && session.message.text.toLowerCase().contains('calaboca')){
         session.send(`Ta bom!`);
@@ -74,8 +82,8 @@ bot.dialog('/', function (session) {
         return true;
     }
 
-    if(session.message.text.toLowerCase().contains('diga oi')){
-        session.send(`Oie!`);
+    if(session.message.text.toLowerCase().equals('ue')){
+        session.send(`https://forum.gc.historygames.net/uploads/monthly_2016_07/64510606.jpg.71550efcca9d919f6bde8b2dcde4beeb.jpg`);
     } else  if(session.message.text.toLowerCase().contains('diga algo')){
         session.send(lerolero());
     } else if(session.message.text.toLowerCase().contains('quina')){
