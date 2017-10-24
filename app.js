@@ -71,7 +71,6 @@ bot.dialog('/', function (session) {
     }
 
     if(calaboca==true){
-        session.send(`...`);
         return true;
     }
 
@@ -98,9 +97,7 @@ bot.dialog('/', function (session) {
             url: url,
             json: true
         }, function (error, response, body) {
-
             var amanha = body.results.forecast[1];
-
             session.send(`Em ${amanha.date} a previsao é de ${amanha.description}. Minima de ${amanha.min} e maxima de ${amanha.max}.`);
         })
 
