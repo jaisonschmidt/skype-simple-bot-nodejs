@@ -66,7 +66,9 @@ bot.dialog('/', function (session) {
         
         session.send(arr.sort(function(a, b){return a-b}).toString());
     } else {
-        session.send(`Não entendi. Procura no Google! Ou acessa meu site [jaison.com.br](https://jaison.com.br) :D`);
+        session.send(`Não entendi. Procura no [Google](http://google.com)!`);
     }
+
+    // link [jaison.com.br](https://jaison.com.br)
 
 });
