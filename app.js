@@ -54,7 +54,7 @@ bot.dialog('/', function (session) {
     if(session.message.user.name=="Jaison Schmidt") {
         setTimeout(function(){ sendProactiveMessage(session.message.address) }, 4000);
         session.send(`teste`);
-        return;
+        return true;
     }
 
     if(session.message.text.toLowerCase().contains('diga oi')){
