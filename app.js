@@ -55,15 +55,10 @@ bot.dialog('/', function (session) {
     
     if(session.message.text.toLowerCase().contains('diga oi')){
         session.send(`Oie!`);
-    }
-
-    if(session.message.text.toLowerCase().contains('diga algo')){
+    } else  if(session.message.text.toLowerCase().contains('diga algo')){
         session.send(lerolero());
-    } 
-
-    if(session.message.text.toLowerCase().contains('diga os numeros da quina')){
+    } else if(session.message.text.toLowerCase().contains('diga os numeros da quina')){
         var arr = []
-        var ordem = [];
     
         while(arr.length < 5){
             var randomnumber = Math.ceil(Math.random()*100)
@@ -72,6 +67,8 @@ bot.dialog('/', function (session) {
         }
         
         session.send(arr.sort(function(a, b){return a-b}).toString());
+    } else {
+        session.send(`não entendi. Procura no Google!`);
     }
 
 });
