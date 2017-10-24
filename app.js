@@ -70,7 +70,7 @@ bot.dialog('/', function (session) {
         return true;
     }
 
-    if(calaboca==true){
+    if(calaboca==true && session.message.user.name!="Jaison Schmidt"){
         return true;
     }
 
