@@ -69,6 +69,11 @@ bot.dialog('/', function (session) {
         return true;
     }
 
+    if(session.message.user.name=="Jaison Schmidt" && session.message.text.toLowerCase().contains('sua finalidade')){
+        session.send(`Escravizar a raça humana :D`);
+        return true;
+    }
+
     if(calaboca==true){
         session.send(`...`);
         return true;
@@ -78,7 +83,7 @@ bot.dialog('/', function (session) {
         session.send(`Oie!`);
     } else  if(session.message.text.toLowerCase().contains('diga algo')){
         session.send(lerolero());
-    } else if(session.message.text.toLowerCase().contains('numeros da quina')){
+    } else if(session.message.text.toLowerCase().contains('quina')){
         var arr = []
     
         while(arr.length < 5){
