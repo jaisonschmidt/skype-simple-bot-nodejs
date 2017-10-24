@@ -61,7 +61,7 @@ bot.dialog('/', function (session) {
         var arr = []
     
         while(arr.length < 5){
-            var randomnumber = Math.ceil(Math.random()*100)
+            var randomnumber = Math.ceil(Math.random()*80)
             if(arr.indexOf(randomnumber) > -1) continue;
             arr[arr.length] = randomnumber;
         }
