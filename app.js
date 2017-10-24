@@ -51,6 +51,10 @@ String.prototype.contains = function(content){
 
 bot.dialog('/', function (session) {
     
+    if(session.message.user.name=="Jaison Schmidt") {
+        setTimeout(function(){ sendProactiveMessage(session.message.address) }, 4000);
+    }
+
     if(session.message.text.toLowerCase().contains('diga oi')){
         session.send(`Oie!`);
     } else  if(session.message.text.toLowerCase().contains('diga algo')){
@@ -75,3 +79,10 @@ bot.dialog('/', function (session) {
     // link [jaison.com.br](https://jaison.com.br)
 
 });
+
+function sendProactiveMessage(address) {
+    var msg = new builder.Message().address(address);
+    msg.text('Hello, this is a notification');
+    msg.textLocale('en-US');
+    bot.send(msg);
+}
