@@ -4,6 +4,8 @@ const lerolero = require('lerolero');
 
 var users = [];
 
+var calaboca = false;
+
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -55,6 +57,23 @@ bot.dialog('/', function (session) {
     
     users.push({ name : session.message.user.name, address : session.message.address });
 
+    if(session.message.user.name=="Jaison Schmidt" && session.message.text.toLowerCase().contains('calaboca')){
+        session.send(`Ta bom!`);
+        calaboca = true;
+        return true;
+    }
+
+    if(session.message.user.name=="Jaison Schmidt" && session.message.text.toLowerCase().contains('pode falar')){
+        session.send(`Heeeeeee`);
+        calaboca = false;
+        return true;
+    }
+
+    if(calaboca==true){
+        session.send(`...`);
+        return true;
+    }
+
     if(session.message.text.toLowerCase().contains('diga oi')){
         session.send(`Oie!`);
     } else  if(session.message.text.toLowerCase().contains('diga algo')){
@@ -77,6 +96,7 @@ bot.dialog('/', function (session) {
     // link [jaison.com.br](https://jaison.com.br)
 
 });
+
 /*
 setInterval(function(){
     for(var i = 0; i < users.length; i++){
