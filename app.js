@@ -94,6 +94,26 @@ bot.dialog('/', function (session) {
         
         session.send(arr.sort(function(a, b){return a-b}).toString());
 
+    } else if (session.message.text.toLowerCase().contains('previsao do tempo')){
+
+        var url = 'https://api.hgbrasil.com/weather/?format=json&woeid=455896';
+        
+        http.get(url, function(res){
+            var body = '';
+        
+            res.on('data', function(chunk){
+                body += chunk;
+            });
+        
+            res.on('end', function(){
+                var fbResponse = JSON.parse(body);
+                session.send(`${fbResponse.results.forecast[1].decription}`);
+
+            });
+        }).on('error', function(e){
+            session.send(`Não consegui acessar a previsão do tempo =/`);
+        });
+
     } else {
         session.send(`Não entendi ${session.message.user.name}.`);
     }
