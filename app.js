@@ -86,7 +86,10 @@ bot.dialog('/', function (session) {
         session.send(`https://forum.gc.historygames.net/uploads/monthly_2016_07/64510606.jpg.71550efcca9d919f6bde8b2dcde4beeb.jpg`);
     } else if(session.message.text.toLowerCase().contains('meme is')){
         session.send(`https://rlv.zcache.com/its_something_meme_postcard-r048747b5c6b24a2381258f05fd149b78_vgbaq_8byvr_324.jpg`);
-    } else  if(session.message.text.toLowerCase().contains('diga algo')){
+    } else if(session.message.text.toLowerCase().contains('tchau')){
+        session.send(`Tchau ${session.message.user.name}! :D`);
+    } 
+    else  if(session.message.text.toLowerCase().contains('diga algo')){
         session.send(lerolero());
     } else if(session.message.text.toLowerCase().contains('quina')){
         var arr = []
