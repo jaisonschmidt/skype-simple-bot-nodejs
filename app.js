@@ -89,6 +89,13 @@ bot.dialog('/', function (session) {
     } else if(session.message.text.toLowerCase().contains('tchau')){
         session.send(`Tchau ${session.message.user.name}! :D`);
     } 
+    else if(session.message.text.toLowerCase().contains('bom dia!')){
+        session.send(`Bom dia ${session.message.user.name}! :D`);
+    } 
+    else if(session.message.text.toLowerCase().contains('da bom dia')){
+        var lastWord = session.message.text.split(" ");
+        session.send(`Bom dia ${lastWord[lastWord.length-1]}! :D`);
+    } 
     else  if(session.message.text.toLowerCase().contains('diga algo')){
         session.send(lerolero());
     } else if(session.message.text.toLowerCase().contains('quina')){
