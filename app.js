@@ -16,6 +16,10 @@ const request = require("request");
 var users = [];
 var calaboca = false;
 
+var piadas = [
+
+];
+
 //=========================================================
 // Bot Setup
 //=========================================================
@@ -96,6 +100,15 @@ bot.dialog('/', function (session) {
         var lastWord = session.message.text.split(" ");
         session.send(`Bom dia ${lastWord[lastWord.length-1]}! :D`);
     } 
+
+    else if(session.message.text.toLowerCase().contains('boa tarde!')){
+        session.send(`Boa tarde ${session.message.user.name}! :D`);
+    } 
+    else if(session.message.text.toLowerCase().contains('da boa tarde')){
+        var lastWord = session.message.text.split(" ");
+        session.send(`Boa tarde ${lastWord[lastWord.length-1]}! :D`);
+    } 
+
     else  if(session.message.text.toLowerCase().contains('diga algo')){
         session.send(lerolero());
     } else if(session.message.text.toLowerCase().contains('quina')){
