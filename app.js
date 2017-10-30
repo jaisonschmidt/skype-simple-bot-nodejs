@@ -96,6 +96,7 @@ bot.dialog('/', function (session) {
     else if(session.message.text.toLowerCase().contains('bom dia!')){
         session.send(`Bom dia ${session.message.user.name}! :D`);
     } 
+
     else if(session.message.text.toLowerCase().contains('da bom dia')){
         var lastWord = session.message.text.split(" ");
         session.send(`Bom dia ${lastWord[lastWord.length-1]}! :D`);
@@ -134,7 +135,11 @@ bot.dialog('/', function (session) {
             session.send(`Em ${amanha.date} a previsao é de ${amanha.description}. Minima de ${amanha.min} e maxima de ${amanha.max}.`);
         })
 
-    } else {
+    } 
+    else if(session.message.text.toLowerCase().contains('valeu man!')){
+        session.send(`de nada man, tmj!`);
+    } 
+    else {
         session.send(`Não entendi ${session.message.user.name}.`);
     }
 
