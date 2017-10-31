@@ -93,6 +93,7 @@ bot.dialog('/', function (session) {
     } else if(session.message.text.toLowerCase().contains('tchau')){
         session.send(`Tchau ${session.message.user.name}! :D`);
     } 
+    
     else if(session.message.text.toLowerCase().contains('bom dia!')){
         session.send(`Bom dia ${session.message.user.name}! :D`);
     } 
