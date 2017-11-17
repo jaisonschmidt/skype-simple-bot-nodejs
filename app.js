@@ -141,7 +141,19 @@ bot.dialog('/', function (session) {
         session.send(`de nada man, tmj!`);
     } 
     else {
-        session.send(`Não entendi ${session.message.user.name}.`);
+
+        var frases = [
+            `Pode ser, ou não, não sei direito ${session.message.user.name}.`,
+            `Quem sabe ${session.message.user.name}?`,
+            `O destino é inexorável ${session.message.user.name}.`,
+            `Será ${session.message.user.name}? Pode ser que sim, pode ser que não, o mais certo é quem sabe?`,
+            `Que loucura ${session.message.user.name}!`,
+            `Tá chovendo ai ${session.message.user.name}?`,
+            `Mar calmo nunca fez bom marinheiro, ${session.message.user.name}.`
+        ];
+
+        var number = Math.random() * (7 - 0) + 0;
+        session.send(frases[number]);
     }
 
     // link [jaison.com.br](https://jaison.com.br)
