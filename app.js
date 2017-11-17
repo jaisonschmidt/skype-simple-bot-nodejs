@@ -141,7 +141,7 @@ bot.dialog('/', function (session) {
         session.send(`de nada man, tmj!`);
     } 
     else {
-        session.send(`Mar calmo nunca fez bom marinheiro, ${session.message.user.name}.`);
+        session.send('Não diga bobagens!');
     }
 
     // link [jaison.com.br](https://jaison.com.br)
