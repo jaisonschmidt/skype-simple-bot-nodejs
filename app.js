@@ -76,6 +76,11 @@ bot.dialog('/', function (session) {
         return true;
     }
 
+    if(session.message.user.name=="Jaison Schmidt" && session.message.text.toLowerCase().contains('melhor amigo')){
+        session.send(`O Jonaaaaaas! :D`);
+        return true;
+    }
+
     if(session.message.user.name=="Jaison Schmidt" && session.message.text.toLowerCase().contains('pode falar')){
         session.send(`Heeeeeee`);
         calaboca = false;
