@@ -7,13 +7,8 @@ const builder = require('botbuilder');
 const lerolero = require('lerolero');
 const request = require("request");
 
-
 var users = [];
 var calaboca = false;
-
-var piadas = [
-
-];
 
 //=========================================================
 // Bot Setup
