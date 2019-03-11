@@ -145,6 +145,9 @@ bot.dialog('/', function (session) {
             
             setTimeout(function(resposta){
                 session.send(body.resposta);
+                setTimeout(function(resposta){
+                    session.send('kkkkkkkkkkkkkkkkk');
+                }, 2000);
             }, 5000);
         })
     } 
