@@ -142,9 +142,9 @@ bot.dialog('/', function (session) {
         }, function (error, response, body) {
             var retorno = body.results;
             session.send(body.pergunta);
-
-            setTimeout(function(){
-                body.resposta
+            
+            setTimeout(function(resposta){
+                session.send(body.resposta);
             }, 5000);
         })
     } 
