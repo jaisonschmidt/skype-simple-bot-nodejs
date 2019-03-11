@@ -116,11 +116,7 @@ bot.dialog('/', function (session) {
     else if(session.message.text.toLowerCase().contains('da boa tarde')){
         var lastWord = session.message.text.split(" ");
         session.send(`Boa tarde ${lastWord[lastWord.length-1]}! :D`);
-    } 
-
-    else  if(session.message.text.toLowerCase().contains('diga algo')){
-        session.send(lerolero());
-    } else if(session.message.text.toLowerCase().contains('quina')){
+    }  else if(session.message.text.toLowerCase().contains('quina')){
         var arr = []
     
         while(arr.length < 5){
@@ -147,8 +143,19 @@ bot.dialog('/', function (session) {
     else if(session.message.text.toLowerCase().contains('valeu man!')){
         session.send(`de nada man, tmj!`);
     } 
+    else if(session.message.text.toLowerCase().contains('charadinha')){
+        var url = "https://us-central1-kivson.cloudfunctions.net/charada-aleatoria"
+        
+        request({
+            url: url,
+            json: true
+        }, function (error, response, body) {
+            var retorno = body.results;
+            session.send(JSON.stringify(retorno));
+        })
+    } 
     else {
-        session.send('Não diga bobagens!');
+        session.send(lerolero());
     }
 
     // link [jaison.com.br](https://jaison.com.br)
