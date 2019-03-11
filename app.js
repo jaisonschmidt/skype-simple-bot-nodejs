@@ -1,10 +1,5 @@
 /*
-    
-
 THIS IS A SIMPLE AND ACADEMIC SKYPE BOT USING NODEJS
-
-
-
 */
 
 const restify = require('restify');
