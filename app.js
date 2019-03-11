@@ -133,7 +133,7 @@ bot.dialog('/', function (session) {
     else if(session.message.text.toLowerCase().contains('valeu man!')){
         session.send(`de nada man, tmj!`);
     } 
-    else if(session.message.text.toLowerCase().contains('charadinha')){
+    else if(session.message.text.toLowerCase().contains('charadinha') || session.message.text.toLowerCase().contains('imita o piasson')){
         var url = "https://us-central1-kivson.cloudfunctions.net/charada-aleatoria"
         
         request({
