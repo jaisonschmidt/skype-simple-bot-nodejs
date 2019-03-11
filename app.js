@@ -141,6 +141,7 @@ bot.dialog('/', function (session) {
             json: true
         }, function (error, response, body) {
             var retorno = body.results;
+            console.log(body)
             session.send(JSON.stringify(retorno));
         })
     } 
