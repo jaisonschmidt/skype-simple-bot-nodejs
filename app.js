@@ -141,8 +141,11 @@ bot.dialog('/', function (session) {
             json: true
         }, function (error, response, body) {
             var retorno = body.results;
-            console.log(body)
-            session.send(JSON.stringify(retorno));
+            session.send(body.pergunta);
+
+            setTimeout(function(){
+                body.resposta
+            }, 5000);
         })
     } 
     else {
