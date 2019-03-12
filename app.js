@@ -147,6 +147,11 @@ bot.dialog('/', function (session) {
                 session.send(body.resposta);
                 setTimeout(function(resposta){
                     session.send('kkkkkkkkkkkkkkkkk');
+
+                    if(session.message.text.toLowerCase().contains('imita o piasson')) {
+                        session.send('Esta piada foi fornecida por um microserviço kkkkkkkkkkk');
+                    }
+                    
                 }, 2000);
             }, 5000);
         })
