@@ -134,6 +134,14 @@ bot.dialog('/', function (session) {
         session.send(`de nada man, tmj!`);
     } 
     else if(session.message.text.toLowerCase().contains('charadinha') || session.message.text.toLowerCase().contains('imita o piasson')){
+        
+        if(session.message.text.toLowerCase().contains('pa nois')) {
+            var tmoutSession = session;
+            setTimeout(function(tmoutSession){
+                sendTimeoutMessage(tmoutSession)
+            }, 10000);
+        }
+
         var url = "https://us-central1-kivson.cloudfunctions.net/charada-aleatoria"
         
         request({
@@ -165,6 +173,27 @@ bot.dialog('/', function (session) {
     // link [jaison.com.br](https://jaison.com.br)
 
 });
+
+function sendTimeoutMessage(session) {
+    var url = "https://us-central1-kivson.cloudfunctions.net/charada-aleatoria"
+    
+    session.send('Bah, lembrei de outra piada!');
+
+    request({
+        url: url,
+        json: true
+    }, function (error, response, body) {
+        var retorno = body.results;
+        session.send(body.pergunta);
+        
+        setTimeout(function(resposta){
+            session.send(body.resposta);
+            setTimeout(function(resposta){
+                session.send('kkkkkkkkkkkkkkkkk');
+            }, 2000);
+        }, 5000);
+    })
+}
 
 /*
 setInterval(function(){
