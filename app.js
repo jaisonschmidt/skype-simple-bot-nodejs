@@ -3,7 +3,7 @@ THIS IS A SIMPLE AND ACADEMIC SKYPE BOT USING NODEJS
 */
 
 const restify = require('restify');
-const builder = require('botbuilder');s
+const builder = require('botbuilder');
 const lerolero = require('lerolero');
 const request = require("request");
 
