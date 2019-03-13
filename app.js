@@ -3,9 +3,8 @@ THIS IS A SIMPLE AND ACADEMIC SKYPE BOT USING NODEJS
 */
 
 const restify = require('restify');
-const builder = require('botbuilder');
+const builder = require('botbuilder');s
 const lerolero = require('lerolero');
-const piada = require('piada');
 const request = require("request");
 
 var users = [];
@@ -137,7 +136,7 @@ bot.dialog('/', function (session) {
     
     else if(session.message.text.toLowerCase().contains('piada')){
         // nao funciona
-        session.send(session.send(piada()));
+        session.send("Não tenho piadas, pare de encher!");
     } 
     
     else if(session.message.text.toLowerCase().contains('charadinha') || session.message.text.toLowerCase().contains('imita o piasson')){
