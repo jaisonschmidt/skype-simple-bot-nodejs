@@ -136,6 +136,7 @@ bot.dialog('/', function (session) {
     } 
     
     else if(session.message.text.toLowerCase().contains('piada')){
+        // nao funciona
         session.send(session.send(piada()));
     } 
     
