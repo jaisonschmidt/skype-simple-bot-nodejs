@@ -139,7 +139,7 @@ bot.dialog('/', function (session) {
             var tmoutSession = session;
             setTimeout(function(tmoutSession){
                 sendTimeoutMessage(tmoutSession)
-            }, 10000);
+            }, 2000);
         }
 
         var url = "https://us-central1-kivson.cloudfunctions.net/charada-aleatoria"
