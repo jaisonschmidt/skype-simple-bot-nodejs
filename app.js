@@ -134,6 +134,7 @@ bot.dialog('/', function (session) {
     else if(session.message.text.toLowerCase().contains('valeu man!')){
         session.send(`de nada man, tmj!`);
     } 
+    
     else if(session.message.text.toLowerCase().contains('piada')){
         session.send(session.send(piada()));
     } 
