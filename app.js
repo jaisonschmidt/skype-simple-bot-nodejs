@@ -5,6 +5,7 @@ THIS IS A SIMPLE AND ACADEMIC SKYPE BOT USING NODEJS
 const restify = require('restify');
 const builder = require('botbuilder');
 const lerolero = require('lerolero');
+const piada = require('piada');
 const request = require("request");
 
 var users = [];
@@ -133,6 +134,10 @@ bot.dialog('/', function (session) {
     else if(session.message.text.toLowerCase().contains('valeu man!')){
         session.send(`de nada man, tmj!`);
     } 
+    else if(session.message.text.toLowerCase().contains('piada')){
+        session.send(session.send(piada()));
+    } 
+    
     else if(session.message.text.toLowerCase().contains('charadinha') || session.message.text.toLowerCase().contains('imita o piasson')){
 
         var url = "https://us-central1-kivson.cloudfunctions.net/charada-aleatoria"

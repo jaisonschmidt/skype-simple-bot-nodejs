@@ -13,6 +13,7 @@
   "dependencies": {
     "botbuilder": "^3.11.0",
     "lerolero": "0.0.1",
+    "piada": "^0.2.2",
     "request": "^2.83.0",
     "restify": "^6.2.3"
   }
