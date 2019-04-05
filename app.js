@@ -172,7 +172,7 @@ bot.dialog('/', function (session) {
             url: url,
             json: true
         }, function (error, response, body) {
-            console.log(body);
+            console.log(typeof body.money);
         })
     }
     else {
