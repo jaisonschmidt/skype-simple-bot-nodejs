@@ -172,6 +172,7 @@ bot.dialog('/', function (session) {
             url: url,
             json: true
         }, function (error, response, body) {
+
             setTimeout(function(){
                 if(body.money == 'true') {
                     session.send('Aeeeeeeeee caraio já pingou! Bora pra putaria cambada!');
@@ -179,6 +180,7 @@ bot.dialog('/', function (session) {
                     session.send('Ainda não, vamos morrer de fome, já me sinto na Venezuela!');
                 }
             }, 2000);
+            
         })
     }
     else {
