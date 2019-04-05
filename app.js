@@ -162,6 +162,27 @@ bot.dialog('/', function (session) {
             }, 5000);
         })
     }
+    else if (session.message.text.toLowerCase().contains('já pingou') || session.message.text.toLowerCase().contains('ja pingou')) {
+
+        session.send('Pera, vou perguntar pro Piasson =)');
+
+        var url = "http://japingou.herokuapp.com/money"
+
+        request({
+            url: url,
+            json: true
+        }, function (error, response, body) {
+            setTimeout(function (body) {
+                
+                if(body.money == "true") {
+                    session.send('Aeeeeeeeee caraio já pingou! Bora pra putaria cambada!');
+                } else {
+                    session.send('Ainda não, vamos morrer de fome, já me sinto na Venezuela!');
+                }
+                
+            }, 2000);
+        })
+    }
     else {
         session.send(lerolero());
     }
