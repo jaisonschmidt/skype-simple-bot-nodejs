@@ -85,6 +85,8 @@ bot.dialog('/', function (session) {
         session.send(`https://forum.gc.historygames.net/uploads/monthly_2016_07/64510606.jpg.71550efcca9d919f6bde8b2dcde4beeb.jpg`);
     } else if (session.message.text.toLowerCase().contains('meme is')) {
         session.send(`https://rlv.zcache.com/its_something_meme_postcard-r048747b5c6b24a2381258f05fd149b78_vgbaq_8byvr_324.jpg`);
+    } else if (session.message.text.toLowerCase().contains('bitcoin')) {
+        session.send('https://blog.flowbtc.com.br/wp-content/uploads/2018/03/top-image.png');
     } else if (session.message.text.toLowerCase().contains('manda nudes')) {
         session.send(`https://img.ibxk.com.br/2015/06/15/15180943425877.png?w=1040`);
     } else if (session.message.text.toLowerCase().contains('tchau')) {
@@ -173,14 +175,14 @@ bot.dialog('/', function (session) {
             json: true
         }, function (error, response, body) {
 
-            setTimeout(function(){
-                if(body.money == 'true') {
+            setTimeout(function () {
+                if (body.money == 'true') {
                     session.send('Aeeeeeeeee caraio já pingou! Bora pra putaria cambada!');
                 } else {
                     session.send('Ainda não, vamos morrer de fome, já me sinto na Venezuela!');
                 }
             }, 2000);
-            
+
         })
     }
     else {
