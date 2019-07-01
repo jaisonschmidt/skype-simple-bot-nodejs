@@ -15,7 +15,7 @@ var calaboca = false;
 //=========================================================
 var server = restify.createServer();
 
-server.listen(process.env.port || process.env.PORT || 8080, function () {
+server.listen(process.env.port || process.env.PORT || 8080, function() {
     console.log('%s listening to %s', server.name, server.url);
 });
 
@@ -29,7 +29,7 @@ var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 
 // Bot on
-bot.on('contactRelationUpdate', function (message) {
+bot.on('contactRelationUpdate', function(message) {
     if (message.action === 'add') {
         var name = message.user ? message.user.name : null;
         var reply = new builder.Message()
@@ -41,22 +41,22 @@ bot.on('contactRelationUpdate', function (message) {
     }
 });
 
-bot.on('typing', function (message) {
+bot.on('typing', function(message) {
     // User is typing
 });
 
-bot.on('deleteUserData', function (message) {
+bot.on('deleteUserData', function(message) {
     // User asked to delete their data
 });
 
 //=========================================================
 // Bots Dialogs
 //=========================================================
-String.prototype.contains = function (content) {
+String.prototype.contains = function(content) {
     return this.indexOf(content) !== -1;
 }
 
-bot.dialog('/', function (session) {
+bot.dialog('/', function(session) {
 
     //users.push({ name : session.message.user.name, address : session.message.address });
 
@@ -89,25 +89,16 @@ bot.dialog('/', function (session) {
         session.send(`https://img.ibxk.com.br/2015/06/15/15180943425877.png?w=1040`);
     } else if (session.message.text.toLowerCase().contains('tchau')) {
         session.send(`Tchau ${session.message.user.name}! :D`);
-    }
-
-    else if (session.message.text.toLowerCase().contains('bom dia!')) {
+    } else if (session.message.text.toLowerCase().contains('bom dia!')) {
         session.send(`Bom dia ${session.message.user.name}! :D`);
-    }
-
-    else if (session.message.text.toLowerCase().contains('seu cargo')) {
+    } else if (session.message.text.toLowerCase().contains('seu cargo')) {
         session.send(`sênior! :-)`);
-    }
-
-    else if (session.message.text.toLowerCase().contains('da bom dia')) {
+    } else if (session.message.text.toLowerCase().contains('da bom dia')) {
         var lastWord = session.message.text.split(" ");
         session.send(`Bom dia ${lastWord[lastWord.length - 1]}! :D`);
-    }
-
-    else if (session.message.text.toLowerCase().contains('boa tarde!')) {
+    } else if (session.message.text.toLowerCase().contains('boa tarde!')) {
         session.send(`Boa tarde ${session.message.user.name}! :D`);
-    }
-    else if (session.message.text.toLowerCase().contains('da boa tarde')) {
+    } else if (session.message.text.toLowerCase().contains('da boa tarde')) {
         var lastWord = session.message.text.split(" ");
         session.send(`Boa tarde ${lastWord[lastWord.length - 1]}! :D`);
     } else if (session.message.text.toLowerCase().contains('quina')) {
@@ -119,7 +110,7 @@ bot.dialog('/', function (session) {
             arr[arr.length] = randomnumber;
         }
 
-        session.send(arr.sort(function (a, b) { return a - b }).toString());
+        session.send(arr.sort(function(a, b) { return a - b }).toString());
 
     } else if (session.message.text.toLowerCase().contains('previsao do tempo')) {
 
@@ -128,41 +119,35 @@ bot.dialog('/', function (session) {
         request({
             url: url,
             json: true
-        }, function (error, response, body) {
+        }, function(error, response, body) {
             var amanha = body.results.forecast[1];
             session.send(`Em ${amanha.date} a previsao é de ${amanha.description}. Minima de ${amanha.min} e maxima de ${amanha.max}.`);
         })
 
-    }
-    else if (session.message.text.toLowerCase().contains('valeu man!')) {
+    } else if (session.message.text.toLowerCase().contains('valeu man!')) {
         session.send(`de nada man, tmj!`);
-    }
-
-    else if (session.message.text.toLowerCase().contains('piada')) {
+    } else if (session.message.text.toLowerCase().contains('piada')) {
         // nao funciona
         session.send("Não tenho piadas, pare de encher!");
-    }
-
-    else if (session.message.text.toLowerCase().contains('charadinha') || session.message.text.toLowerCase().contains('imita o piasson')) {
+    } else if (session.message.text.toLowerCase().contains('charadinha') || session.message.text.toLowerCase().contains('imita o piasson')) {
 
         var url = "https://us-central1-kivson.cloudfunctions.net/charada-aleatoria"
 
         request({
             url: url,
             json: true
-        }, function (error, response, body) {
+        }, function(error, response, body) {
             var retorno = body.results;
             session.send(body.pergunta);
 
-            setTimeout(function (resposta) {
+            setTimeout(function(resposta) {
                 session.send(body.resposta);
-                setTimeout(function (resposta) {
+                setTimeout(function(resposta) {
                     session.send('kkkkkkkkkkkkkkkkk');
                 }, 2000);
             }, 5000);
         })
-    }
-    else if (session.message.text.toLowerCase().contains('já pingou') || session.message.text.toLowerCase().contains('ja pingou')) {
+    } else if (session.message.text.toLowerCase().contains('já pingou') || session.message.text.toLowerCase().contains('ja pingou')) {
 
         session.send('Pera, vou perguntar pro Piasson =)');
 
@@ -171,19 +156,20 @@ bot.dialog('/', function (session) {
         request({
             url: url,
             json: true
-        }, function (error, response, body) {
+        }, function(error, response, body) {
 
-            setTimeout(function(){
-                if(body.money == 'true') {
+            setTimeout(function() {
+                if (body.money == 'true') {
                     session.send('Aeeeeeeeee caraio já pingou! Bora pra putaria cambada!');
                 } else {
                     session.send('Ainda não, vamos morrer de fome, já me sinto na Venezuela!');
                 }
             }, 2000);
-            
+
         })
-    }
-    else {
+    } else if (session.message.text.toLowerCase().contains('piasson')) {
+        session.send(`Aeeeeeeh caraio, Piasson tá ficando véio, parabéns ai piasson, muitas alegrias e microserviços (like me!)!!!`);
+    } else {
         session.send(lerolero());
     }
 
